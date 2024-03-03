@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html,
+body {
+	height: 100%;
+}
+body {
+	font-family: 'Poppins', sans-serif;
+	background-color: #1a1d24;
+	color: #fff;
+	display: grid;
+	place-items: center;
+}
+
+.paragraph span {
+	display: block;
+	opacity: 0;
+	animation: reveal 0.5s forwards var(--d);
+}
+@keyframes reveal {
+	from {
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+		</style>
+	</head>
+	<body>
+		<p class="paragraph">
+      <span style="--d: 0s;">Don't be frightened about what comes next.</span>
+      <span style="--d: .1s;">You should embrace uncertainty.</span>
+      <span style="--d: .2s;">Be open, and allow it to lead you places.</span>
+    </p>
+	</body>
+</html>

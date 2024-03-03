@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html,
+body {
+	height: 100%;
+}
+body {
+	font-family: 'Poppins', sans-serif;
+	background-color: #1a1d24;
+	display: grid;
+	place-items: center;
+}
+
+.title span {
+	--total: calc(var(--duration) + var(--delay));
+	position: relative;
+	display: block;
+	color: transparent;
+	overflow: hidden;
+	animation: reveal 1s var(--total) forwards;
+}
+.title span::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transform: scaleX(0);
+	transform-origin: left;
+	background-color: #0561ee;
+	animation: rollIn var(--duration) var(--delay) forwards,
+		rollOut var(--duration) var(--total) forwards;
+}
+.title span:nth-child(2)::after {
+	border-top: 3px solid #004ab8;
+}
+@keyframes reveal {
+	to {
+		color: #fff;
+	}
+}
+@keyframes rollIn {
+	from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
+}
+@keyframes rollOut {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(105%);
+	}
+}
+
+		</style>
+	</head>
+	<body>
+		<h1 class="title" style="--duration: 1s">
+			<span style="--delay: 0.5s">John Doe</span>
+			<span style="--delay: 0.8s">developer & designer.</span>
+		</h1>
+	</body>
+</html>

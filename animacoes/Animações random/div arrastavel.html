@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1f1d2b;
+        }
+
+        #draggable {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffd791;
+            border-radius: 5px;
+            font-size: 24px;
+            line-height: 1.5;
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="draggable">Drag me!</div>
+
+
+    <script>
+        
+        let draggable = document.getElementById('draggable')
+
+        let posX = 0
+        let posY = 0
+        let mouseX = 0
+        let mouseY = 0
+
+        draggable.addEventListener('mousedown', mouseDown, false)
+        window.addEventListener('mouseup', mouseUp, false)
+
+        function mouseDown(e) {
+            e.preventDefault()
+            posX = e.clientX - draggable.offsetLeft
+            posY = e.clientY - draggable.offsetTop
+            window.addEventListener('mousemove', moveElement, false)
+        }
+
+        function mouseUp() {
+            window.removeEventListener('mousemove', moveElement, false)
+        }
+
+        function moveElement(e) {
+            mouseX = e.clientX - posX
+            mouseY = e.clientY - posY
+            draggable.style.left = mouseX + 'px'
+            draggable.style.top = mouseY + 'px'
+        }
+
+    </script>
+
+</body>
+</html>
